@@ -11,9 +11,12 @@ public class CalculatorTests {
 
    @Test
    public void emptyString() {
-
       assertEquals(0,calculator.Add(""));
+   }
 
+   @Test
+   public void oneNumber() {
+      assertEquals(1,calculator.Add("1"));
    }
 
 }
