@@ -58,9 +58,14 @@ public class CalculatorTests {
       assertEquals(6,calculator.Add("-1,-2,-3,4,5"));
    }
 
-  
+   /**
+    * Numbers bigger than 1000 should be ignored
+    */
 
-
+   @Test
+   public void biggerThan1000() {
+      assertEquals(1003,calculator.Add("//;\n1;2,3000,2000;1000"));
+   }
 
 
 }
