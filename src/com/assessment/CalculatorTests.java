@@ -52,8 +52,15 @@ public class CalculatorTests {
    @Test
    public void negativeNumbers() {
 
-      assertEquals(9,calculator.Add("-1,-2,3,4,5"));
+      thrown.expect(NegativeNumberException.class);
+      thrown.expectMessage("negatives not allowed -> -1,-2");
+
+      assertEquals(6,calculator.Add("-1,-2,-3,4,5"));
    }
+
+  
+
+
 
 
 }
