@@ -29,4 +29,9 @@ public class CalculatorTests {
       assertEquals(6,calculator.Add("1,2,3"));
    }
 
+   @Test
+   public void newLinesBwNumbers() {
+      assertEquals(6,calculator.Add("1\n2,3"));
+   }
+
 }
