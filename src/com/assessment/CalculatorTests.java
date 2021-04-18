@@ -34,4 +34,11 @@ public class CalculatorTests {
       assertEquals(6,calculator.Add("1\n2,3"));
    }
 
+   // “//[delimiter]\n[numbers…]”
+
+   @Test
+   public void differentDelimiters() {
+      assertEquals(3,calculator.Add("//;\n1;2"));
+   }
+
 }
