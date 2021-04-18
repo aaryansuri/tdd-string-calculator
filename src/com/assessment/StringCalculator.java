@@ -26,7 +26,10 @@ public class StringCalculator {
         StringBuilder negatives = new StringBuilder();
 
         for(String num : numSplits){
+
             int n = Integer.parseInt(num);
+
+            if(n>1000) continue;
 
             if(n<0) {
                 negatives.append(num).append(',');
