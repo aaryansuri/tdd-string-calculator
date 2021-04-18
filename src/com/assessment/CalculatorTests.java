@@ -2,11 +2,17 @@ package com.assessment;
 
 
 import static org.junit.Assert.*;
+
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class CalculatorTests {
 
    private final StringCalculator calculator = new StringCalculator();
+
+   @Rule
+   public ExpectedException thrown = ExpectedException.none();
 
 
    @Test
@@ -43,6 +49,11 @@ public class CalculatorTests {
       assertEquals(3,calculator.Add("//;\n1;2"));
    }
 
+   @Test
+   public void negativeNumbers() {
+
+      assertEquals(9,calculator.Add("-1,-2,3,4,5"));
+   }
 
 
 }
