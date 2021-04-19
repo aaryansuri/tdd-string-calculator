@@ -8,9 +8,11 @@ public class StringCalculator {
 
     private static final Pattern numbersPattern = Pattern.compile("^(//[\\[\\],%*;]+\n)(.*)"); // , % * ; are four different delimiters for now
 
-
+    private static int calledCount;
 
     public int Add(String numbers) {
+
+        calledCount++;
 
         if(numbers.isEmpty() || numbers.isBlank()) return 0;
 
@@ -44,6 +46,10 @@ public class StringCalculator {
         return sum;
 
 
+    }
+
+    public int getCalledCount() {
+        return calledCount;
     }
 
 
