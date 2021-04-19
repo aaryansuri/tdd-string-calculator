@@ -52,8 +52,48 @@ public class CalculatorTests {
    @Test
    public void negativeNumbers() {
 
-      assertEquals(9,calculator.Add("-1,-2,3,4,5"));
+      thrown.expect(NegativeNumberException.class);
+      thrown.expectMessage("negatives not allowed -> -1,-2");
+      assertEquals(6,calculator.Add("-1,-2,-3,4,5"));
    }
 
+   /**
+    * Numbers bigger than 1000 should be ignored
+    */
 
+   @Test
+   public void biggerThan1000() {
+      assertEquals(1003,calculator.Add("//;\n1;2,3000,2000;1000"));
+   }
+
+   /**
+    * “//[delimiter]\n”
+    * for example:
+    * “//[***]\n1***2***3” == 6
+    */
+
+   @Test
+   public void delimitersOfAnyLength() {
+      assertEquals(6,calculator.Add("//[***]\n1***2***3"));
+   }
+
+   /**
+    * “//[delim1][delim2]\n”
+    * for example
+    * “//[*][%]\n1*2%3” == 6.
+    */
+
+   @Test
+   public void multipleDelimiters() {
+      assertEquals(6,calculator.Add("//[*][%]\n1*2%3"));
+   }
+
+   /**
+    * “//[**][%%]\n1**2%%3” == 6.
+    */
+
+   @Test
+   public void multipleDelimitersLongerThanOne() {
+      assertEquals(6,calculator.Add("//[**][%%]\n1**2%%3"));
+   }
 }
