@@ -8,6 +8,8 @@ public class StringCalculator {
 
     private static final Pattern numbersPattern = Pattern.compile("^(//[\\[\\],%*;]+\n)(.*)"); // , % * ; are four different delimiters for now
 
+
+
     public int Add(String numbers) {
 
         if(numbers.isEmpty() || numbers.isBlank()) return 0;
@@ -22,19 +24,15 @@ public class StringCalculator {
                                                                //new line, and blank spaces if specified in input
 
         int sum = 0;
-
         StringBuilder negatives = new StringBuilder();
 
         for(String num : numSplits){
 
             int n = Integer.parseInt(num);
-
             if(n>1000) continue;
-
-            if(n<0) {
+            else if(n<0) {
                 negatives.append(num).append(',');
             }
-
             sum+=n;
         }
 
